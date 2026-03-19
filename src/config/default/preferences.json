@@ -67,25 +67,25 @@
     "textMenuStyle": ""
     },
   "logo": {
-    "title":"Argenmap",
-    "src": "src/styles/images/argenmap-banner-white.webp",
-    "height": "",
+    "title":"INTA Digital GEO",
+    "src": "https://s3.inta.gob.ar/logos/svg/logo-blanco.svg",
+    "height": "45px",
     "width": "",
     "style": "background-size: 160px;",
-    "srcLogoMini": "src/styles/images/argenmap-banner-white.webp",
-    "miniHeight": "",
-    "miniWidth": "",
-    "ministyle": "filter: drop-shadow(1px 1px 1px #103847); width: 128px;",
-    "link": "https://github.com/ign-argentina/argenmap"
+    "srcLogoMini": "https://s3.inta.gob.ar/logos/svg/logo-blanco.svg",
+    "miniHeight": "40px",
+    "miniWidth": "auto",
+    "ministyle": "filter: drop-shadow(1px 1px 1px #103847); width: 100px;",
+    "link": "https://argentina.gob.ar/inta"
   },
   "logoText": {
-    "content": "Lorem Ipsum",
-    "title":"Lorem Ipsum",
-    "link": "#"
+    "content": "INTA Digital GEO",
+    "title":"INTA Digital GEO",
+    "link": "https://geo.inta.gob.ar"
   },
-  "title": "Argenmap",
-  "website": "https://github.com/ign-argentina/argenmap",
-  "favicon": "src/styles/images/favicon.ico",
+  "title": "INTA Digital GEO",
+  "website": "https://argentina.gob.ar/inta",
+  "favicon": "https://s3.inta.gob.ar/logos/favicon.ico",
   "geoprocessing": {
     "isActive": true,
     "buttonTitle": "Geoprocesos",

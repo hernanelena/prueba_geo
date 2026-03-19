@@ -4,24 +4,10 @@
 ---
 [English version][README_en]
 
-Argenmap es un visor de mapas desarrollado por el [Instituto Geográfico Nacional][] de licencia libre que permite mostrar mapas base, capas superpuestas, consultar y crear datos.
+## 🌐 Descripción General
 
-Está basado en [Leaflet][] y para funcionar sólo requiere ser publicado con un servidor web. A partir de un archivo de configuración en formato JSON genera un panel lateral con todas las capas publicadas.
+El visor INTA Digital GEO es una adaptación del visor Argenmap v1.27.2, desarrollada para centralizar y visualizar la información geoespacial producida por los distintos GeoNodes INTA distribuidos en todo el territorio nacional.
 
-Las capas se agrupan en el panel en secciones que son definidas en el archivo de configuración.
+Este visor unifica el acceso a datos de recursos naturales, suelos, agricultura, clima, biodiversidad, economía y ordenamiento territorial, integrando servicios WMS, WFS y WCS de cada nodo regional y del nodo nacional-
 
-Incluye por defecto con el mapa base de la República Argentina y se pueden agregar otros.
 
-## Documentación
-- Guía rápida de [instalación][]
-- [Configurar][] capas, mapas base, estilos
-- [Funcionalidades][]
-- [Colaborar][] con el desarrollo
-
-[Instituto Geográfico Nacional]: https://www.ign.gob.ar
-[Leaflet]: https://leafletjs.com/
-[README_en]: src/docs/en/README.md
-[instalación]: src/docs/deployment.md
-[Configurar]: src/docs/configuration.md
-[Funcionalidades]: src/docs/features.md
-[Colaborar]: src/docs/contributing.md
