@@ -67,7 +67,7 @@
     "textMenuStyle": ""
     },
   "logo": {
-    "title":"INTA Digital GEO",
+    "title":"INTA",
     "src": "https://s3.inta.gob.ar/logos/svg/logo-blanco.svg",
     "height": "45px",
     "width": "",
@@ -79,7 +79,7 @@
     "link": "https://argentina.gob.ar/inta"
   },
   "logoText": {
-    "content": "INTA Digital GEO",
+    "content": "ID GEO",
     "title":"INTA Digital GEO",
     "link": "https://geo.inta.gob.ar"
   },

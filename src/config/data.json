@@ -58,6 +58,38 @@
           }
         },
         {
+          "titulo": "Google Satellite",
+          "nombre": "google_satellite",
+          "servicio": "tms",
+          "version": "1.0.0",
+          "attribution": "Map data © Google",
+          "host": "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+          "legendImg": "src/styles/images/esri.png",
+          "peso": 30,
+          "zoom": {
+            "min": 0,
+            "max": 20,
+            "nativeMin": 0,
+            "nativeMax": 20
+          }
+        },
+        {
+        "titulo": "Google Hybrid",
+        "nombre": "google_hybrid",
+        "servicio": "tms",
+        "version": "1.0.0",
+        "attribution": "Map data © Google",
+        "host": "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
+        "legendImg": "src/styles/images/esri.png",
+        "peso": 30,
+        "zoom": {
+          "min": 0,
+          "max": 20,
+          "nativeMin": 0,
+          "nativeMax": 20
+          }
+        },
+        {
           "titulo": "Mapa topográfico Esri",
           "nombre": "esri_imagery_t",
           "servicio": "tms",
@@ -71,22 +103,6 @@
             "max": 8,
             "nativeMin": 3,
             "nativeMax": 8
-          }
-        },
-        {
-          "titulo": "Imágenes satelitales Here",
-          "nombre": "here_imagery",
-          "servicio": "tms",
-          "version": "1.0.0",
-          "attribution": "Imágenes satelitales © here",
-          "host": "https://2.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8?app_id=XiMlA4JwMurUFFYUWYe3&app_code=oTsmqovbl2YudG3E0UlxDA",
-          "legendImg": "src/styles/images/here.png",
-          "peso": 50,
-          "zoom": {
-            "min": 3,
-            "max": 20,
-            "nativeMin": 3,
-            "nativeMax": 20
           }
         }
       ]
@@ -293,9 +309,9 @@
 
       },
       "type": "wmslayer",
-      "peso": 10,
+      "peso": 50,
       "nombre": "Agua",
-      "short_abstract": "Suelos, Textura, Carbono, pH, SisINTA",
+      "short_abstract": "Red de drenaje, Cuencas, Humedales, Riego",
       "class": "",
       "seccion": "Agua",
       "servicio": "wms",
@@ -327,6 +343,102 @@
        ]
 
     },
+    {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 10,
+      "nombre": "Agricultura",
+      "short_abstract": "Cultivos extensivos/intensivos, Frutales",
+      "class": "",
+      "seccion": "Agri",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-backend.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+       "geonode:mnc_verano2024_f300268fd112b0ec3ef5f731edb78882",
+        "geonode:mnc_invierno_2019",
+        "geonode:MNC_invierno2021",
+        "geonode:MNC_invierno2022",
+        "geonode:mnc_invierno2023_d86dd2aa0b678a011b89830f77cec883",
+        "geonode:mnc_2018_2019_V1R1",
+        "geonode:mnc_verano_2020",
+        "geonode:mnc_verano2021",
+        "geonode:MNC_verano2022",
+        "geonode:MNC_verano_2023"    
+      
+       ]
+
+    },
+    {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 10,
+      "nombre": "Agricultura",
+      "short_abstract": "Cultivos extensivos/intensivos, Frutales",
+      "class": "",
+      "seccion": "Agri",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo05.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:nro_cultivos_qgis_merge_hc_b3701746b67214762864f60ee3112b0f",
+        "geonode:numero_cereales_fafef34c656359ff52417d29bff95b36",
+        "geonode:numero_s1_29f49a97991266889e6282c87c043b49",      
+        "geonode:rotaciones_245adf946d8e6458bcce0e19a9e3e33c"
+      
+       ]
+
+    },
+     {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 60,
+      "nombre": "Clima y Meteorología",
+      "short_abstract": "Precipitaciones, Temperaturas, Evapotranspiracón",
+      "class": "",
+      "seccion": "Clima",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo01.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        "geonode:01_pp_ba57f25af7aebf4d0eb378552ed2daaa",
+        "geonode:02_pp_96e4e2d11636fafd131005ceac02133e",
+        "geonode:03_pp_7241fb309c4814f1d3e4824b4ea8d37e",
+        "geonode:04pp_d5fcacdb2657ff6b53c0b47776368c41",
+        "geonode:05_pp_clip_3a04b4cce37a9c1da3b5ee08cd5f9953",
+        "geonode:06_pp_305265eb62a3bac12161f21d743086c2",
+        "geonode:07_pp_14afd7fae0db0be38c564323d8604264",
+        "geonode:08_pp_05a96cff3fc162ef47c8603cdc56a591",
+        "geonode:09_pp_c6aca087c42cb51270a02fed8b7ec9d0",
+        "geonode:10_pp_c09ca84ecf4daf79c0aa0a43af16c11d",
+        "geonode:11_pp_58ec4cc6f071eff4a88f8664adf6e04b",
+        "geonode:12_pp_b4febea5216bfab635e7ef38c8912151",
+        "geonode:precipitacion_anual_dc870cab9d9f2e51c70015aab0a84869"
+       
+      
+       ]
+
+    },
 
     {
       "tab": {
@@ -338,7 +450,7 @@
       "type": "wmslayer",
       "peso": 300,
       "nombre": "Modelos digitales de elevaciones",
-      "short_abstract": "Modelos digitales de elevaciones",
+      "short_abstract": "Modelos digitales de elevaciones - IGN",
       "class": "",
       "seccion": "mde",
       "servicio": "wms",
