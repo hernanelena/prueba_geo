@@ -159,6 +159,43 @@
        ]
 
     },
+    {
+      "type": "wms",
+      "peso": 70,
+      "nombre": "Suelos",
+      "short_abstract": "Suelos, Textura, Carbono, pH, SisINTA",
+      "class": "",
+      "seccion": "Suelos",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo10.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:suelos_santa_fe_25",
+        "geonode:suelos_santa_fe_250_base_completa",
+        "geonode:cpa_santa_fe"
+       ]
+
+    },
+    {
+      "type": "wms",
+      "peso": 70,
+      "nombre": "Suelos",
+      "short_abstract": "Suelos, Textura, Carbono, pH, SisINTA",
+      "class": "",
+      "seccion": "Suelos",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo02.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:suelos"
+         
+       ]
+
+    },
 
     {
       "type": "wmslayer",
