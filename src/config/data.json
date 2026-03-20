@@ -133,7 +133,16 @@
         "geonode:texclass_60_100_con_mascara_676377cf2182b97bf62cfead3515bdf4",
         "geonode:ph_0_30_nuevo_recorte_m_4d4cbbd459875375ae3e856e2870841f",
         "geonode:ph_30_100_nuevo_recorte_m_cbccd7b512bb4f943ad9672e961bee3d",
-        "geonode:ocsmgha_ipcc_rf_jun18_con_m_a5f12e832f01dd12e17596c1f86a6c88"
+        "geonode:ocsmgha_ipcc_rf_jun18_con_m_a5f12e832f01dd12e17596c1f86a6c88",
+        "geonode:rehecho",
+        "geonode:buenos_aires_500mil_ll",
+        "geonode:suelos_ba_50mil_v2",
+        "geonode:suelos_patagones_final_pg2007f4",
+        "geonode:suelos_villarino",
+        "geonode:mapa_de_suelos_pirane_final_latlong"
+
+        
+
         
        ]
     }, 
@@ -219,6 +228,63 @@
        ]
 
     },
+     {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wms",
+      "peso": 70,
+      "nombre": "Suelos",
+      "short_abstract": "Suelos, Textura, Carbono, pH, SisINTA",
+      "class": "",
+      "seccion": "Suelos",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo13.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:mapa_guarani_final_i",
+        
+        "geonode:suelos_alemp7"
+       ]
+
+    },
+    {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wms",
+      "peso": 70,
+      "nombre": "Suelos",
+      "short_abstract": "Suelos, Textura, Carbono, pH, SisINTA",
+      "class": "",
+      "seccion": "Suelos",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo15.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:arizona_v0_02d647e0a3661237e9442c9ce388df2d",
+        
+        "geonode:buenaesperanza_v0",
+        "geonode:concaran_v0_676e7dd96118736d2ea36e767bd7c7fd",
+        "geonode:loyola_varela_v0_017028c132f4111b991dff14de997fd8",
+        "geonode:sanluis_v1",
+        "geonode:villagralroca_v0",
+        "geonode:villamercedes_v0"
+
+
+       ]
+
+    },
     {
       "tab": {
         "id": "Capas",
@@ -300,6 +366,71 @@
        ]
 
     },
+    {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wms",
+      "peso": 70,
+      "nombre": "Suelos",
+      "short_abstract": "Suelos, Textura, Carbono, pH, SisINTA",
+      "class": "",
+      "seccion": "Suelos",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo08.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:2024_suelos_cordoba_500mil",
+        "geonode:2025_cad_suelos_cordoba_100mil",
+        "geonode:250000_final",
+        "geonode:2025_cad_suelos_cordoba_50mil"
+
+         
+       ]
+
+    },
+    {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wms",
+      "peso": 70,
+      "nombre": "Suelos",
+      "short_abstract": "Suelos, Textura, Carbono, pH, SisINTA",
+      "class": "",
+      "seccion": "Suelos",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo09.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:Lomas_arenosas",
+        "geonode:Suelos_Esquina2",
+        "geonode:Suelos_Goya",
+        "geonode:Suelos_Lavalle",
+        "geonode:suelos_alvear",
+        "geonode:suelos_curuzu",
+        "geonode:suelos_empedrado_50000_1d36f0eac40a59619d2452fa1dc7f3d8",
+        "geonode:suelos_mercedes_50000",
+        "geonode:suelos_monte_caseros_50000",
+        "geonode:suelos_santotome",
+        "geonode:suelos_sauce",
+        "geonode:suelos_yacireta"
+        
+         
+       ]
+
+    },
+    
     
     {
       "tab": {
@@ -343,6 +474,10 @@
        ]
 
     },
+    
+
+
+
     {
       "tab": {
         "id": "Capas",
@@ -362,7 +497,8 @@
       "host": "https://geo-backend.inta.gob.ar/geoserver/wms",
       "allowed_layers": [ 
         
-       "geonode:mnc_verano2024_f300268fd112b0ec3ef5f731edb78882",
+        "geonode:mnc_verano2024_f300268fd112b0ec3ef5f731edb78882",
+        "geonode:invierno2020",
         "geonode:mnc_invierno_2019",
         "geonode:MNC_invierno2021",
         "geonode:MNC_invierno2022",
@@ -433,8 +569,161 @@
         "geonode:10_pp_c09ca84ecf4daf79c0aa0a43af16c11d",
         "geonode:11_pp_58ec4cc6f071eff4a88f8664adf6e04b",
         "geonode:12_pp_b4febea5216bfab635e7ef38c8912151",
-        "geonode:precipitacion_anual_dc870cab9d9f2e51c70015aab0a84869"
+        "geonode:precipitacion_anual_dc870cab9d9f2e51c70015aab0a84869",
+        "geonode:01_p_ep_f126aeffb8a96db4ec8cbbf21dfe05e3",
+        "geonode:02_p_ep_07de6ff80e103dc9c009a188eabf7f94",
+        "geonode:03_p_ep_ad232ed5660f6efbf049ad9c92e45eec",
+        "geonode:04_p_ep_7acf3fe83625aa662deccd2005399b19",
+        "geonode:05_p_ep_2208db28b961405767c8ee70e1f1570e",
+        "geonode:06_p_ep_e104e03da98f1c8d44e3a179089e1a6b",
+        "geonode:07_p_ep_ef1ed1f96a97982b7e9922d0d1d8866b",
+        "geonode:08_p_ep_3b8348a76da733bdb64d96e2be5f3bb9",
+        "geonode:09_p_ep_95bac3273367b75241d854df953a133e",
+        "geonode:10_p_ep_33dc7c9b71dce20116f410756eb13217",
+        "geonode:11_p_ep_22aa8af9724680ee38ea658d67378238",
+        "geonode:12_p_ep_9598867b5ad064117d19f15d99ad52ce",
+        "geonode:p_ep_balanceh_7354439de7a8b0eca1f2ec3fff94d0f0",		
+        "geonode:01_tempera_1087a84f0121b1037656b92f4bd7d80c",
+        "geonode:02_tempera_63b3a90e3889d87d53f550ca1e55cc41",
+        "geonode:03_tempera_b74441a3e82189b7dbfad1b6d0b00f88",
+        "geonode:04_tempera_9a0096e54d3ffd6764cc1b83f042a725",
+        "geonode:05_tempera_b8e13a74918a97fbcd305af033f11aa1",
+        "geonode:06_tempera_e158392c927059f42972a3fdddbbba11",
+        "geonode:07_tempera_6313273c334087f4e1d59769ea0f3a76",
+        "geonode:08_tempera_476b5ffb63e6ffc6d7e2aba465f5be5d",
+        "geonode:09_tempera_9fc2255cc4ef59213ee92e68180e1f5a",
+        "geonode:10_tempera_000271a9a5839b49aced5b7b626185e8",
+        "geonode:11_tempera_29fce3517327c5765fc4e5ccf7954550",
+        "geonode:12_tempera_54ee78700fe9787b416d2eb008255537",
+        "geonode:13_tempera_anual_d05a5c7cfea478b26501471d4953a160",		
+        "geonode:indice_aridez_demartone_17bc70943cefbec0e083881c5b3054e3"
        
+      
+       ]
+
+    },
+     {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 65,
+      "nombre": "Riesgos Ambientales",
+      "short_abstract": "Inundaciones",
+      "class": "",
+      "seccion": "Riesgo",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-backend.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:ire_2017"
+      
+       ]
+
+    },
+    {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 55,
+      "nombre": "Biodiversidad",
+      "short_abstract": "Vegetación",
+      "class": "",
+      "seccion": "Biod",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo01.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:uf_puna"
+      
+       ]
+
+    },
+
+     {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 62,
+      "nombre": "Economía y Sociología",
+      "short_abstract": "",
+      "class": "",
+      "seccion": "Econ",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo01.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:regiones_agro_eco_homog_noa"
+      
+       ]
+
+    },
+
+
+
+
+
+     {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 63,
+      "nombre": "Ordenamiento Territorial",
+      "short_abstract": "Uso y Cobertura del Suelo",
+      "class": "",
+      "seccion": "Orden",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo01.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:desmontenoa2024_inters_dptos"
+      
+       ]
+
+    },
+    {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 63,
+      "nombre": "Ordenamiento Territorial",
+      "short_abstract": "Uso y Cobertura del Suelo",
+      "class": "",
+      "seccion": "Orden",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-backend.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        "geonode:lccs_n3_2007"
       
        ]
 
