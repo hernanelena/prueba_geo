@@ -754,7 +754,7 @@
         "list_type": "combobox"
       },
         "type": "wmslayer",
-        "peso": 50,
+        "peso": 120,
         "nombre": "Región Salta y Jujuy",
         "short_abstract": "toda la info",
         "class": "",
@@ -771,7 +771,7 @@
         "list_type": "combobox"
       },
         "type": "wmslayer",
-        "peso": 50,
+        "peso": 350,
         "nombre": "Región Tucumán Santiago del Estero",
         "short_abstract": "toda la info",
         "class": "",
@@ -788,7 +788,7 @@
         "list_type": "combobox"
       },
         "type": "wmslayer",
-        "peso": 50,
+        "peso": 60,
         "nombre": "Región Entre Ríos",
         "short_abstract": "toda la info",
         "class": "",
@@ -805,7 +805,7 @@
         "list_type": "combobox"
       },
         "type": "wmslayer",
-        "peso": 50,
+        "peso": 110,
         "nombre": "Región Río Negro - Neuquén ",
         "short_abstract": "toda la info",
         "class": "",
@@ -822,7 +822,7 @@
         "list_type": "combobox"
       },
         "type": "wmslayer",
-        "peso": 50,
+        "peso": 11,
         "nombre": "Centro Nacional de Investigaciones Agropecuarias",
         "short_abstract": "toda la info",
         "class": "",
@@ -839,7 +839,7 @@
         "list_type": "combobox"
       },
         "type": "wmslayer",
-        "peso": 50,
+        "peso": 100,
         "nombre": "Región Patagonia Sur ",
         "short_abstract": "toda la info",
         "class": "",
@@ -856,7 +856,7 @@
         "list_type": "combobox"
       },
         "type": "wmslayer",
-        "peso": 50,
+        "peso": 15,
         "nombre": "Región Buenos Aires ",
         "short_abstract": "toda la info",
         "class": "",
@@ -873,7 +873,7 @@
         "list_type": "combobox"
       },
         "type": "wmslayer",
-        "peso": 50,
+        "peso": 40,
         "nombre": "Región Córdoba ",
         "short_abstract": "toda la info",
         "class": "",
@@ -881,6 +881,142 @@
         "servicio": "wms",
         "version": "1.3.0",
         "host": "https://geo-nodo08.inta.gob.ar/geoserver/wms"
+  },
+    {
+      "tab": {
+        "id": "Nodos",
+        "searcheable": false,
+        "content": "Nodos",
+        "list_type": "combobox"
+      },
+        "type": "wmslayer",
+        "peso": 10,
+        "nombre": "Nacional ",
+        "short_abstract": "toda la info",
+        "class": "",
+        "seccion": "nodonac",
+        "servicio": "wms",
+        "version": "1.3.0",
+        "host": "https://geo-backend.inta.gob.ar/geoserver/wms"
+  },
+    {
+      "tab": {
+        "id": "Nodos",
+        "searcheable": false,
+        "content": "Nodos",
+        "list_type": "combobox"
+      },
+        "type": "wmslayer",
+        "peso": 20,
+        "nombre": "Región Catamarca - La Rioja ",
+        "short_abstract": "toda la info",
+        "class": "",
+        "seccion": "nodo11",
+        "servicio": "wms",
+        "version": "1.3.0",
+        "host": "https://geo-nodo11.inta.gob.ar/geoserver/wms"
+  },
+    {
+      "tab": {
+        "id": "Nodos",
+        "searcheable": false,
+        "content": "Nodos",
+        "list_type": "combobox"
+      },
+        "type": "wmslayer",
+        "peso": 50,
+        "nombre": "Región Corrientes ",
+        "short_abstract": "toda la info",
+        "class": "",
+        "seccion": "nodo9",
+        "servicio": "wms",
+        "version": "1.3.0",
+        "host": "https://geo-nodo09.inta.gob.ar/geoserver/wms"
+  },
+    {
+      "tab": {
+        "id": "Nodos",
+        "searcheable": false,
+        "content": "Nodos",
+        "list_type": "combobox"
+      },
+        "type": "wmslayer",
+        "peso": 70,
+        "nombre": "Región La Pampa - San Luis",
+        "short_abstract": "toda la info",
+        "class": "",
+        "seccion": "nodo15",
+        "servicio": "wms",
+        "version": "1.3.0",
+        "host": "https://geo-nodo15.inta.gob.ar/geoserver/wms"
+  },
+    {
+      "tab": {
+        "id": "Nodos",
+        "searcheable": false,
+        "content": "Nodos",
+        "list_type": "combobox"
+      },
+        "type": "wmslayer",
+        "peso": 80,
+        "nombre": "Región Mendoza - San Juan",
+        "short_abstract": "toda la info",
+        "class": "",
+        "seccion": "nodo12",
+        "servicio": "wms",
+        "version": "1.3.0",
+        "host": "https://geo-nodo12.inta.gob.ar/geoserver/wms"
+  },
+    {
+      "tab": {
+        "id": "Nodos",
+        "searcheable": false,
+        "content": "Nodos",
+        "list_type": "combobox"
+      },
+        "type": "wmslayer",
+        "peso": 90,
+        "nombre": "Región Misiones",
+        "short_abstract": "toda la info",
+        "class": "",
+        "seccion": "nodo13",
+        "servicio": "wms",
+        "version": "1.3.0",
+        "host": "https://geo-nodo13.inta.gob.ar/geoserver/wms"
+  },
+    {
+      "tab": {
+        "id": "Nodos",
+        "searcheable": false,
+        "content": "Nodos",
+        "list_type": "combobox"
+      },
+        "type": "wmslayer",
+        "peso": 150,
+        "nombre": "Región Santa Fe",
+        "short_abstract": "toda la info",
+        "class": "",
+        "seccion": "nodo10",
+        "servicio": "wms",
+        "version": "1.3.0",
+        "host": "https://geo-nodo10.inta.gob.ar/geoserver/wms"
+  },
+    {
+      "tab": {
+        "id": "Nodos",
+        "searcheable": false,
+        "content": "Nodos",
+        "list_type": "combobox"
+      },
+        "type": "wmslayer",
+        "peso": 30,
+        "nombre": "Región Chaco - Formosa",
+        "short_abstract": "toda la info",
+        "class": "",
+        "seccion": "nodo14",
+        "servicio": "wms",
+        "version": "1.3.0",
+        "host": "https://geo-nodo14.inta.gob.ar/geoserver/wms"
   }
 
 
