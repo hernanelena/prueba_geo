@@ -172,6 +172,10 @@ class ImpresorItemHTML extends Impresor {
     btn_options.id = "layer-options-" + item.nombre;
     btn_options.setAttribute("onClick", "event.stopPropagation()");
 
+    
+
+
+
     const btn_zoom = document.createElement("div");
     btn_zoom.className = "zoom-layer";
     btn_zoom.setAttribute("layername", item.nombre);
@@ -223,6 +227,7 @@ class ImpresorItemHTML extends Impresor {
 
     btn.appendChild(btn_title);
     btn.appendChild(btn_options);
+    
 
     return btn.outerHTML;
   }
@@ -3425,6 +3430,16 @@ class Tab {
 }
 
 var serviceItems = [];
+
+
+// Helper global: detecta si una capa es vectorial (tiene WFS)
+function capaEsVector(capa) {
+  if (!capa || !capa.nombre) return false;
+  return gestorMenu.layersDataForWfs.hasOwnProperty(capa.nombre);
+}
+
+
+
 /******************************************
 Menu_UI
 ******************************************/
@@ -3658,7 +3673,11 @@ class Menu_UI {
     mainul.append(zoom_layer_opt);
     mainul.append(edit_name_opt);
     mainul.append(edit_data_opt);
-    mainul.append(download_opt);
+    
+    if (isVector) {
+      mainul.append(download_opt);
+    }
+
     //mainul.append(query_opt)
     //mainul.append(copy_opt)
     //mainul.append(style_opt)
@@ -3741,6 +3760,7 @@ class Menu_UI {
         url_img,
         descripcion,
         false,
+        layers[property].capa   // <--- ESTA LÍNEA NUEVA !!!
       );
       list.append(li_layer);
     }
@@ -3748,7 +3768,7 @@ class Menu_UI {
     contenedor.append(list);
   }
 
-  add_btn_Layer_combobox(id_dom, title, url_img, descripcion, options) {
+  add_btn_Layer_combobox(id_dom, title, url_img, descripcion, options, capa) {
     // reemplazar =title
     let min_url_img =
       url_img +
@@ -3884,6 +3904,33 @@ class Menu_UI {
     capa_info.append(capa_legend_div);
     capa_info.append(capa_title_div);
     capa_info.append(btn_zoom_layer);
+
+    // ---- BOTÓN DESCARGA KML ----
+    const btn_kml = document.createElement("div");
+    btn_kml.className = "download-kml";
+    btn_kml.style = "align-self: center; cursor: pointer; margin-left:10px;";
+    btn_kml.innerHTML = `<i class="fa fa-download" title="Descargar KML"></i>`;
+    btn_kml.onclick = function(e){
+        e.stopPropagation();
+        downloadComboboxLayer("kml", title, capa);
+    };
+
+    // ---- BOTÓN DESCARGA SHP ----
+    const btn_shp = document.createElement("div");
+    btn_shp.className = "download-shp";
+    btn_shp.style = "align-self: center; cursor: pointer; margin-left:5px;";
+    btn_shp.innerHTML = `<i class="fa fa-file-archive" title="Descargar SHP"></i>`;
+    btn_shp.onclick = function(e){
+        e.stopPropagation();
+        downloadComboboxLayer("shp", title, capa);
+    };
+
+    // Agregar botones al panel
+    if (capaEsVector(capa)) {
+      capa_info.append(btn_kml);
+      capa_info.append(btn_shp);
+    }
+
     li.append(capa_info);
     li.append(container_expand_legend_grafic);
     return li;
@@ -4065,6 +4112,7 @@ class Menu_UI {
 
   addLayerToGroup(groupname, layerType, textName, id, fileName, layer) {
     // layer.name = encodeURI(layer.name);
+    const isVector = capaEsVector(layer);
     let newLayer = layer;
     newLayer.active = false;
     newLayer.L_layer = null;

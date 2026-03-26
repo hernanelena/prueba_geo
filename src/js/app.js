@@ -825,3 +825,75 @@ document.addEventListener("contextmenu", (e) => {
   }
   //ui_component.getContextMenu(e.target.classList);
 });
+
+function showDownloadLoader() {
+    document.getElementById('download-loader').style.display = 'block';
+}
+
+function hideDownloadLoader() {
+    document.getElementById('download-loader').style.display = 'none';
+}
+
+async function downloadComboboxLayer(format, title, capa) {
+
+  const startTime = Date.now();
+  const MIN_VISIBLE_TIME = 1200; // 1.2 segundos
+
+  showDownloadLoader();
+
+  const layerName = capa.nombre;
+  let host = capa.host
+    .replace(/\/wms.*/g, "")
+    .replace(/\/ows.*/g, "")
+    .replace(/\/wfs.*/g, "")
+    .replace(/\/gwc\/service\/wmts.*/g, "");
+
+  const wfs1 = host + "/wfs";
+  const wfs2 = host + "/ows";
+
+  const urlFormat = (format === "shp")
+    ? "shape-zip"
+    : "kml";
+
+  const fname = (format === "shp")
+    ? layerName.split(":").pop() + ".zip"
+    : layerName.split(":").pop() + "." + format;
+
+  const tryDownload = async (baseUrl) => {
+    const url =
+      `${baseUrl}?service=WFS&version=1.1.0&request=GetFeature` +
+      `&typeName=${layerName}` +
+      `&outputFormat=${urlFormat}`;
+
+    const resp = await fetch(url);
+    if (!resp.ok) return null;
+
+    const text = await resp.clone().text();
+    if (text.includes("ExceptionReport")) return null;
+
+    return await resp.blob();
+  };
+
+  try {
+    let blob = await tryDownload(wfs1);
+    if (!blob) blob = await tryDownload(wfs2);
+
+    if (!blob) {
+      throw new Error("Capa sin WFS");
+    }
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = fname;
+    link.click();
+    URL.revokeObjectURL(link.href);
+
+  } catch (error) {
+    console.error(error);
+    alert("Esta capa no puede descargarse. Puede ser por dos motivos. 1- No compartida para la descarga. 2- Es un raster, en este caso recomendamos acceder al nodo regional correspondiente (https://geo.inta.gob.ar/geoportales/) y descargar desde ahi. ");
+  } finally {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, MIN_VISIBLE_TIME - elapsed);
+    setTimeout(hideDownloadLoader, remaining);
+  }
+}
