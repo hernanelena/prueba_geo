@@ -807,17 +807,9 @@ let conaeCheck = setInterval(() => {
   // patch to force conae layers into menu
   let conaeLayers = gestorMenu.items.conae;
   if (conaeLayers) {
-    if (Array.isArray(conaeLayers.itemsComposite) &&
-        conaeLayers.itemsComposite.length === 12) {
-
-      // ✅ ORDENAR CAPAS DEL WMS POR TÍTULO
-      conaeLayers.itemsComposite.sort((a, b) => {
-        const ta = (a.titulo || a.title || "");
-        const tb = (b.titulo || b.title || "");
-        return ta.localeCompare(tb, "es", { sensitivity: "base" });
-      });
-
+    if (Object.entries(gestorMenu.items.conae.itemsComposite).length === 12) {
       gestorMenu.printMenu();
+      //document.getElementById("temp-menu").remove();
       clearInterval(conaeCheck);
     }
   }
