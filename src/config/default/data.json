@@ -139,8 +139,10 @@
         "geonode:suelos_ba_50mil_v2",
         "geonode:suelos_patagones_final_pg2007f4",
         "geonode:suelos_villarino",
-        "geonode:mapa_de_suelos_pirane_final_latlong"
-
+        "geonode:mapa_de_suelos_pirane_final_latlong",
+        "geonode:suelos_cienmil_er_latlong",
+        "geonode:suelos_salinos_0_30_recorte_9622e0e127b7ae1d157c7f49d41605f3",
+        "geonode:suelos_salinos_30_100_recorte_437dcf998c66ee96455f4cb196eda5b1"
         
 
         
@@ -306,36 +308,13 @@
         
         "geonode:suelos",
         "geonode:suelos_ltf",
-        "geonode:zonificacion_usosuelo",
+        
         "geonode:geoformas_uc_belgrano"
          
        ]
 
     },
-    {
-      "tab": {
-        "id": "Capas",
-        "searcheable": true,
-        "content": "Capas" 
-
-      },
-      "type": "wms",
-      "peso": 70,
-      "nombre": "Suelos",
-      "short_abstract": "Suelos, Textura, Carbono, pH, SisINTA",
-      "class": "",
-      "seccion": "Suelos",
-      "servicio": "wms",
-      "version": "1.3.0",
-      "feature_info_format":"application/json",
-      "host": "https://geo-nodo03.inta.gob.ar/geoserver/wms",
-      "allowed_layers": [ 
-        
-        "geonode:carta_de_suelos_unocienmil_df05b067570a0dea80e67f5aa41aa5d6"
-         
-       ]
-
-    },
+    
     {
       "tab": {
         "id": "Capas",
@@ -388,7 +367,11 @@
         "geonode:2024_suelos_cordoba_500mil",
         "geonode:2025_cad_suelos_cordoba_100mil",
         "geonode:250000_final",
-        "geonode:2025_cad_suelos_cordoba_50mil"
+        "geonode:2025_cad_suelos_cordoba_50mil",
+        "geonode:2025_capacidad_agua_disponible",
+        "geonode:suelos_cordoba_500mil_parcial",
+        "geonode:aptitud_riego_500mil",
+        "geonode:ambientes"
 
          
        ]
@@ -474,10 +457,11 @@
        ]
 
     },
+
     
 
 
-
+    
     {
       "tab": {
         "id": "Capas",
@@ -512,6 +496,35 @@
        ]
 
     },
+    {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 10,
+      "nombre": "Agricultura",
+      "short_abstract": "Cultivos extensivos/intensivos, Frutales",
+      "class": "",
+      "seccion": "Agri",
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo05.inta.gob.ar//geoserver/wms",
+      "allowed_layers": [ 
+        
+        
+        "geonode:mnc_inv24_eaef41861ef189c2add78522812c553c",
+        "geonode:mnc_ver25_0137b886113242df34818d72a99f6838"    
+      
+       ]
+
+    },
+
+
+
     {
       "tab": {
         "id": "Capas",
@@ -729,6 +742,36 @@
 
     },
 
+
+    {
+      "tab": {
+        "id": "Capas",
+        "searcheable": true,
+        "content": "Capas" 
+
+      },
+      "type": "wmslayer",
+      "peso": 63,
+      "nombre": "Ordenamiento Territorial",
+      "short_abstract": "Uso y Cobertura del Suelo",
+      "class": "",
+      "seccion": "Orden",      
+      "servicio": "wms",
+      "version": "1.3.0",
+      "feature_info_format":"application/json",
+      "host": "https://geo-nodo02.inta.gob.ar/geoserver/wms",
+      "allowed_layers": [ 
+        
+        
+        "geonode:zonificacion_usosuelo"
+        
+         
+       ]
+
+    },
+
+
+
     {
       "tab": {
         "id": "Capas",
@@ -750,7 +793,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -767,7 +810,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -784,7 +827,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -801,7 +844,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -818,7 +861,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -835,7 +878,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -852,7 +895,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -869,7 +912,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -886,7 +929,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -903,7 +946,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -920,7 +963,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -937,7 +980,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -954,7 +997,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -971,7 +1014,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -988,7 +1031,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",
@@ -1005,7 +1048,7 @@
       "tab": {
         "id": "Nodos",
         "searcheable": false,
-        "content": "Nodos",
+        "content": "Nodos Regionales",
         "list_type": "combobox"
       },
         "type": "wmslayer",

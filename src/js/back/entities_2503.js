@@ -3,94 +3,6 @@
 const EmptyTab = "main-menu-tab-";
 const ItemGroupPrefix = "lista-";
 
-function isVectorInGeoNode(capa, callback) {
-  const base = capa.host
-    .replace(/\/geoserver\/wms.*$/i, "")
-    .replace(/\/geoserver.*$/i, "");
-
-  const parts = capa.nombre.split(":");
-  if (parts.length !== 2) {
-    callback(false);
-    return;
-  }
-
-  const workspace = parts[0];
-  const name = parts[1];
-
-  const vectorMetadataUrl =
-    `${base}/datasets/geonode_data:${workspace}:${name}/metadata_detail`;
-
-  fetch(vectorMetadataUrl, { method: "HEAD" })
-    .then(res => callback(res.ok))
-    .catch(() => callback(false));
-}
-
-
-
-// ========= Helper para URL de metadatos GeoNode =========
-function buildGeoNodeMetadataUrl(capa) {
-  const base = capa.host
-    .replace(/\/geoserver\/wms.*$/i, "")
-    .replace(/\/geoserver.*$/i, "");
-
-  const layerName = capa.nombre; // ej: geonode:desmontenoa2024 o geonode:mnc_ver25_xxx
-  const parts = layerName.split(":");
-
-  if (parts.length !== 2) {
-    return null;
-  }
-
-  const workspace = parts[0];
-  const name = parts[1];
-
-  // ✅ heurística fiable en GeoNode INTA:
-  // - rasters → nombre largo / hash
-  // - vectores → nombres normalizados
-  const isRaster =
-    capa.servicio === "wms" &&
-    (name.length > 40 || capa.tipo === "raster");
-
-  if (isRaster) {
-    // Raster
-    return `${base}/datasets/${name}:${workspace}:${name}/metadata_detail`;
-  } else {
-    // Vector
-    return `${base}/datasets/geonode_data:${workspace}:${name}/metadata_detail`;
-  }
-}
-
-function checkGeoNodeLayerType(capa, callback) {
-  const base = capa.host
-    .replace(/\/geoserver\/wms.*$/i, "")
-    .replace(/\/geoserver.*$/i, "");
-
-  const parts = capa.nombre.split(":");
-  if (parts.length !== 2) {
-    callback("unknown");
-    return;
-  }
-
-  const workspace = parts[0];
-  const name = parts[1];
-
-  const vectorUrl =
-    `${base}/datasets/geonode_data:${workspace}:${name}/metadata_detail`;
-
-  // probamos SOLO la vectorial
-  fetch(vectorUrl, { method: "HEAD" })
-    .then(res => {
-      if (res.ok) {
-        callback("vector", vectorUrl);
-      } else {
-        callback("raster");
-      }
-    })
-    .catch(() => {
-      callback("raster");
-    });
-}
-
-
 /******************************************
 Class Capa
 ******************************************/
@@ -2638,42 +2550,26 @@ class GestorMenu {
   }
 
   addItemGroup(itemGroup) {
-    let itemAux;
-
+    var itemAux;
     if (!this.items[itemGroup.seccion] || itemGroup.isBaseLayer()) {
+      //itemGroup.isBaseLayer() avoid to repeat base layer into selector
       itemAux = itemGroup;
       this._existsIndexes[itemGroup.seccion] = 0;
     } else {
       itemAux = this.items[itemGroup.seccion];
       this._existsIndexes[itemGroup.seccion] =
-        Object.keys(itemAux.itemsComposite).length + 1;
+        Object.keys(itemAux.itemsComposite).length + 1; //Si ya existe el itemGroup pero se agregan datos de otras fuentes, esto evita que se repitan los ID
     }
-
-    /* ✅ ORDENAR SIN ROMPER itemsComposite */
-    const orderedKeys = Object.keys(itemGroup.itemsComposite)
-      .sort((k1, k2) => {
-        const a = itemGroup.itemsComposite[k1];
-        const b = itemGroup.itemsComposite[k2];
-
-        const ta = (a.titulo || a.title || "").toString();
-        const tb = (b.titulo || b.title || "").toString();
-
-        return ta.localeCompare(tb, "es", { sensitivity: "base" });
-      });
-
-    for (const key of orderedKeys) {
-      const item = itemGroup.itemsComposite[key];
-
+    for (var key in itemGroup.itemsComposite) {
       if (this._existsIndexes[itemGroup.seccion] > 0) {
-        item.seccion += this._existsIndexes[itemGroup.seccion];
+        //Para modificar item.seccion para no duplicar el contenido
+        itemGroup.itemsComposite[key].seccion +=
+          this._existsIndexes[itemGroup.seccion];
       }
-
-      itemAux.setItem(item);
+      itemAux.setItem(itemGroup.itemsComposite[key]);
     }
-
     this.items[itemGroup.seccion] = itemAux;
   }
-
 
   addPlugin(pluginName, url, callback) {
     var pluginAux;
@@ -4009,11 +3905,8 @@ class Menu_UI {
     capa_info.append(capa_title_div);
     capa_info.append(btn_zoom_layer);
 
-
     // ---- BOTÓN DESCARGA KML ----
     const btn_kml = document.createElement("div");
-    const metadataUrl = buildGeoNodeMetadataUrl(capa);
-
     btn_kml.className = "download-kml";
     btn_kml.style = "align-self: center; cursor: pointer; margin-left:10px;";
     btn_kml.innerHTML = `<i class="fa fa-download" title="Descargar KML"></i>`;
@@ -4032,84 +3925,11 @@ class Menu_UI {
         downloadComboboxLayer("shp", title, capa);
     };
 
-    
-    // ---- BOTÓN INFO METADATOS ----
-    const btn_info = document.createElement("div");
-    btn_info.className = "layer-info";
-    btn_info.style = "align-self: center; cursor: pointer; margin-left:5px;";
-    btn_info.innerHTML = `<i class="fa fa-circle-info" title="Ver metadatos"></i>`;
-    
-    btn_info.onclick = function (e) {
-      e.stopPropagation();
-
-      checkGeoNodeLayerType(capa, (type, vectorUrl) => {
-        if (type === "vector") {
-          window.open(vectorUrl, "_blank");
-        } else {
-          const base = capa.host
-            .replace(/\/geoserver\/wms.*$/i, "")
-            .replace(/\/geoserver.*$/i, "");
-          const name = capa.nombre.split(":")[1];
-          window.open(
-            `${base}/datasets/${name}:geonode:${name}/metadata_detail`,
-            "_blank"
-          );
-        }
-      });
-    };
-
-
-
-
-
-    capa_info.append(btn_info); // 👈 ESTA LÍNEA ES CLAVE
-
     // Agregar botones al panel
-    // ---- detectar raster de forma segura ----
-    let isRaster = false;
-
-    if (capa && capa.nombre) {
-      const parts = capa.nombre.split(":");
-      if (parts.length === 2) {
-        const name = parts[1];
-
-        isRaster =
-          capa.servicio === "wms" &&
-          (
-            name.length > 40 ||         // patrón raster GeoNode INTA
-            capa.tipo === "raster"      // si existe
-          );
-      }
-    }
-
-
-    isVectorInGeoNode(capa, (isVector) => {
-      if (!isVector) return;
-
-      // ---- BOTÓN DESCARGA KML ----
-      const btn_kml = document.createElement("div");
-      btn_kml.className = "download-kml";
-      btn_kml.style = "align-self: center; cursor: pointer; margin-left:10px;";
-      btn_kml.innerHTML = `<i class="fa fa-download" title="Descargar KML"></i>`;
-      btn_kml.onclick = function(e){
-        e.stopPropagation();
-        downloadComboboxLayer("kml", title, capa);
-      };
-
-      // ---- BOTÓN DESCARGA SHP ----
-      const btn_shp = document.createElement("div");
-      btn_shp.className = "download-shp";
-      btn_shp.style = "align-self: center; cursor: pointer; margin-left:5px;";
-      btn_shp.innerHTML = `<i class="fa fa-file-archive" title="Descargar SHP"></i>`;
-      btn_shp.onclick = function(e){
-        e.stopPropagation();
-        downloadComboboxLayer("shp", title, capa);
-      };
-
+    if (capaEsVector(capa)) {
       capa_info.append(btn_kml);
       capa_info.append(btn_shp);
-    });
-
+    }
 
     li.append(capa_info);
     li.append(container_expand_legend_grafic);
