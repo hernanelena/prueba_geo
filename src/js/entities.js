@@ -27,6 +27,8 @@ function isVectorInGeoNode(capa, callback) {
 
 
 
+
+
 // ========= Helper para URL de metadatos GeoNode =========
 function buildGeoNodeMetadataUrl(capa) {
   const base = capa.host
@@ -273,6 +275,33 @@ class ImpresorItemHTML extends Impresor {
     btn_zoom_icon.classList = "fas fa-search-plus";
     btn_zoom_icon.title = "Zoom a capa";
 
+
+    // ---- BOTÓN INFO METADATOS ----
+    // ---- BOTÓN INFO METADATOS ----
+    const btn_info = document.createElement("div");
+    btn_info.className = "layer-info";
+    btn_info.style = "align-self: center; margin: 0 8px; cursor: pointer;";
+
+    const btn_info_icon = document.createElement("i");
+    btn_info_icon.classList = "fa fa-circle-info";
+    btn_info_icon.title = "Ver metadatos de la capa";
+
+    btn_info.onclick = (e) => {
+      e.stopPropagation();
+
+      const capaRef = item.capa || item.layer || item;
+      const url = buildGeoNodeMetadataUrl(capaRef);
+      if (url) window.open(url, "_blank");
+    };
+
+    btn_info.appendChild(btn_info_icon);
+
+
+
+
+
+
+
     const btn_opacity = document.createElement("div");
     btn_opacity.className = "opacity-layer";
     btn_opacity.setAttribute("layername", item.nombre);
@@ -307,6 +336,9 @@ class ImpresorItemHTML extends Impresor {
 
     btn_zoom.appendChild(btn_zoom_icon);
     btn_options.appendChild(btn_zoom);
+    //btn_options.appendChild(btn_info);
+
+    //btn_options.appendChild(btn_info_icon);
 
     btn_opacity.appendChild(btn_opacity_icon);
     btn_opacity.appendChild(input_opacity);
@@ -3778,6 +3810,7 @@ class Menu_UI {
     mainul.append(edit_name_opt);
     mainul.append(edit_data_opt);
     
+    const isVector = capaEsVector(layer);
     if (isVector) {
       mainul.append(download_opt);
     }
@@ -4082,7 +4115,7 @@ class Menu_UI {
       }
     }
 
-
+    
     isVectorInGeoNode(capa, (isVector) => {
       if (!isVector) return;
 
